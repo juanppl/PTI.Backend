@@ -5,8 +5,11 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
+from rest_framework import status
 
-from PTIBackend.serializers import UserSerializer
+from PTIBackend.serializers import RegisterUserSerializer, UserSerializer
 
 from .models import User
 
@@ -30,3 +33,19 @@ class UserLogIn(ObtainAuthToken):
             'id': user.pk,
             'username': user.username
         })
+    
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def create_auth(request):
+    serialized = RegisterUserSerializer(data=request.data)
+    if serialized.is_valid():
+        user = User(
+            email=serialized.validated_data['email'],
+            username=serialized.validated_data['username']
+        )
+        user.set_password(serialized.validated_data['password'])
+        user.save()
+        return Response(serialized.data, status=status.HTTP_201_CREATED)
+    else:
+        return Response(serialized._errors, status=status.HTTP_400_BAD_REQUEST)
