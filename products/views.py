@@ -5,14 +5,14 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from .models import Product
-from PTIBackend.serializers import ProductSerializer
+from PTIBackend.serializers import ProductDtoSerializer, ProductSerializer
 
 # Create your views here.
 
 @api_view(['GET'])
 def get_all_products(request):
-    categories = Product.objects.all()
-    serializer = ProductSerializer(categories, many=True)
+    products = Product.objects.filter(isDeleted=False)
+    serializer = ProductDtoSerializer(products, many=True)
     return Response(serializer.data)
 
 @api_view(['POST'])
@@ -26,11 +26,11 @@ def create_product(request):
 @api_view(['GET'])
 def get_product(request, pk):
     try:
-        product = Product.objects.get(pk=pk)
+        product = Product.objects.filter(isDeleted=False).get(pk=pk)
     except Product.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
-    serializer = ProductSerializer(product)
+    serializer = ProductDtoSerializer(product)
     return Response(serializer.data)
 
 @api_view(['PUT'])

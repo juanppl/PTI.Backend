@@ -18,6 +18,15 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = ['id', 'fullName', 'displayName', 'description', 'price', 'isActive', 'creationDate', 
                   'expireDate', 'category', 'availableQty', 'lastModificationDate', 'isDeleted', 'deletedDate']
 
+class ProductDtoSerializer(serializers.ModelSerializer):
+    category = CategorySerializer(read_only=True)
+
+    class Meta:
+        model = Product
+        fields = ['id', 'fullName', 'displayName', 'description', 'price', 'isActive', 'creationDate', 
+                  'expireDate', 'category', 'availableQty', 'lastModificationDate', 'isDeleted', 'deletedDate']
+
+
 class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
