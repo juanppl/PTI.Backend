@@ -8,30 +8,30 @@ Base url: http://127.0.0.1:8000/
 
 #### Categories
 
-[AUTH][GET] -> BaseURL/api/categories/get-list-of-categories
+[AUTH][GET] -> BaseURL/api/categories/get-list-of-categories <br />
 
 #### Products
 
-[AUTH][GET] -> BaseURL/api/products/get-all-products
-[AUTH][POST] -> BaseURL/api/products/create
-[AUTH][GET] -> BaseURL/api/products/<int:pk>
-[AUTH][PUT] -> BaseURL/api/products/<int:pk>/update
-[AUTH][DELETE] -> BaseURL/api/products/<int:pk>/delete
+[AUTH][GET] -> BaseURL/api/products/get-all-products <br />
+[AUTH][POST] -> BaseURL/api/products/create <br />
+[AUTH][GET] -> BaseURL/api/products/<int:pk> <br />
+[AUTH][PUT] -> BaseURL/api/products/<int:pk>/update <br />
+[AUTH][DELETE] -> BaseURL/api/products/<int:pk>/delete <br />
 
-Where <int:pk> is the id of the product
+Where <int:pk> is the id of the product <br />
 
 #### Orders
 
-[AUTH][GET] -> BaseURL/api/orders/get-order-list/
-[AUTH][POST] -> BaseURL/api/orders/create-order/
-[AUTH][GET] -> BaseURL/api/orders/user-orders/<int:user_id>/
-[AUTH][POST] -> BaseURL/api/orders/cancel-order/<int:order_id>/
+[AUTH][GET] -> BaseURL/api/orders/get-order-list/ <br />
+[AUTH][POST] -> BaseURL/api/orders/create-order/ <br />
+[AUTH][GET] -> BaseURL/api/orders/user-orders/<int:user_id>/ <br />
+[AUTH][POST] -> BaseURL/api/orders/cancel-order/<int:order_id>/ <br />
 
 #### Auth
 
-[POST] -> BaseURL/api/user-login/
-[POST] -> BaseURL/api/register/
-[AUTH][POST] -> BaseURL/api/update-profile/<int:pk>/
+[POST] -> BaseURL/api/user-login/ <br />
+[POST] -> BaseURL/api/register/ <br />
+[AUTH][POST] -> BaseURL/api/update-profile/<int:pk>/ <br />
 
 # Usage
 
