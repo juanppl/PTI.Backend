@@ -8,12 +8,7 @@ If your project is already in an existing python3 virtualenv first install djang
 
     $ pip install django
     
-And then run the `django-admin.py` command to start the new project:
-
-    $ django-admin.py startproject \
-      --template=https://github.com/nikola-k/django-template/zipball/master \
-      --extension=py,md \
-      <project_name>
+And then run the `django-admin.py` command to start the new project
       
 ### No virtualenv
 
@@ -25,15 +20,7 @@ Installing inside virtualenv is recommended, however you can start your project 
 If you don't have django installed for python 3 then run:
 
     $ pip3 install django restframework django-cors-headers Pillow mysqlclient
-    
-And then:
-
-    $ python3 -m django startproject \
-      --template=https://github.com/nikola-k/django-template/zipball/master \
-      --extension=py,md \
-      <project_name>
-      
-      
+        
 After that just install the local dependencies, run migrations, and start the server.
 
 # Getting Started
@@ -44,14 +31,10 @@ First clone the repository from Github and switch to the new directory:
     $ cd {{ project_name }}
     
 Activate the virtualenv for your project.
-    
-Install project dependencies:
 
-    $ pip install -r requirements/local.txt
-    
-    
 Then simply apply the migrations:
 
+    $ python manage.py makemigrations
     $ python manage.py migrate
     
 
