@@ -1,3 +1,38 @@
+## Services
+
+Below is the list of exposed services by this application that can be used
+
+#### Base
+
+Base url: http://127.0.0.1:8000/
+
+#### Categories
+
+[AUTH][GET] -> BaseURL/api/categories/get-list-of-categories
+
+#### Products
+
+[AUTH][GET] -> BaseURL/api/products/get-all-products
+[AUTH][POST] -> BaseURL/api/products/create
+[AUTH][GET] -> BaseURL/api/products/<int:pk>
+[AUTH][PUT] -> BaseURL/api/products/<int:pk>/update
+[AUTH][DELETE] -> BaseURL/api/products/<int:pk>/delete
+
+Where <int:pk> is the id of the product
+
+#### Orders
+
+[AUTH][GET] -> BaseURL/api/orders/get-order-list/
+[AUTH][POST] -> BaseURL/api/orders/create-order/
+[AUTH][GET] -> BaseURL/api/orders/user-orders/<int:user_id>/
+[AUTH][POST] -> BaseURL/api/orders/cancel-order/<int:order_id>/
+
+#### Auth
+
+[POST] -> BaseURL/api/user-login/
+[POST] -> BaseURL/api/register/
+[AUTH][POST] -> BaseURL/api/update-profile/<int:pk>/
+
 # Usage
 
 To use this template to start your own project:
