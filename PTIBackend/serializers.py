@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from categories.models import Category
 from rest_framework import serializers
+from orders.models import Order
 from products.models import Product
 from users.models import User
 
@@ -82,3 +83,18 @@ class UpdateUserSerializer(serializers.ModelSerializer):
         instance.save()
 
         return instance
+    
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ['id',
+        'user',
+        'product',
+        'price',
+        'quantity',
+        'creationDate',
+        'paidDate',
+        'status',
+        'wasCancelled',
+        'cancelledDate']
+            
