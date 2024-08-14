@@ -38,6 +38,19 @@ def create_order(request):
         return Response(serializer.data, status=201)
     return Response(serializer.errors, status=400)
 
+@api_view(['POST'])
+def pay_order(request, order_id):
+    try:
+        order = Order.objects.get(pk=order_id)
+    except Order.DoesNotExist:
+        return Response({"error": "Order not found"}, status=404)
+
+    order.paidDate = date.today()
+    order.status = "Pagada"
+
+    order.save()
+
+    return Response(status=status.HTTP_204_NO_CONTENT)    
 
 @api_view(['POST'])
 def cancel_order(request, order_id):
@@ -48,7 +61,7 @@ def cancel_order(request, order_id):
 
     order.wasCancelled = True
     order.cancelledDate = date.today()
-    order.status = "Cancelled"
+    order.status = "Cancelada"
 
     order.save()
 

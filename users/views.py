@@ -31,7 +31,9 @@ class UserLogIn(ObtainAuthToken):
         return Response({
             'token': token.key,
             'id': user.pk,
-            'username': user.username
+            'username': user.username,
+            'is_superuser': user.is_superuser,
+            'user_permissions':  list(user.user_permissions.values_list('codename', flat=True))
         })
     
 

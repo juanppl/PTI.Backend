@@ -26,6 +26,7 @@ Where <int:pk> is the id of the product <br />
 [AUTH][POST] -> BaseURL/api/orders/create-order/ <br />
 [AUTH][GET] -> BaseURL/api/orders/user-orders/<int:user_id>/ <br />
 [AUTH][POST] -> BaseURL/api/orders/cancel-order/<int:order_id>/ <br />
+[AUTH][POST] -> BaseURL/api/orders/pay-order/<int:order_id>/ <br />
 
 #### Auth
 
