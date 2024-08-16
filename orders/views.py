@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 
-from PTIBackend.serializers import OrderSerializer
+from PTIBackend.serializers import OrderDtoSerializer, OrderSerializer
 from orders.models import Order
 from users.models import User
 
@@ -14,7 +14,7 @@ from users.models import User
 @api_view(['GET'])
 def get_all_orders(request):
     orders = Order.objects.filter(wasCancelled=False)
-    serializer = OrderSerializer(orders, many=True)
+    serializer = OrderDtoSerializer(orders, many=True)
     return Response(serializer.data)
 
 
@@ -26,7 +26,7 @@ def user_orders(request, user_id):
         return Response({"error": "User not found"}, status=404)
     
     orders = Order.objects.filter(user=user)
-    serializer = OrderSerializer(orders, many=True)
+    serializer = OrderDtoSerializer(orders, many=True)
     return Response(serializer.data)
 
 

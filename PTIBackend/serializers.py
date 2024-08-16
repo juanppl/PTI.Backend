@@ -111,3 +111,31 @@ class OrderSerializer(serializers.ModelSerializer):
             OrderItem.objects.create(order=order, **item_data)
         return order
         
+
+class OrderDtoItemSerializer(serializers.ModelSerializer):
+    product = ProductDtoSerializer()
+    class Meta:
+        model = OrderItem
+        fields = ['id', 'product', 'price', 'quantity']
+
+class OrderDtoSerializer(serializers.ModelSerializer):
+    items = OrderDtoItemSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Order
+        fields = ['id',
+        'user',
+        'price',
+        'creationDate',
+        'paidDate',
+        'status',
+        'wasCancelled',
+        'cancelledDate',
+        'items']
+
+    def create(self, validated_data):
+        items_data = validated_data.pop('items')
+        order = Order.objects.create(**validated_data)
+        for item_data in items_data:
+            OrderItem.objects.create(order=order, **item_data)
+        return order
