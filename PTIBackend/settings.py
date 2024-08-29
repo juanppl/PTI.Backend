@@ -151,6 +151,6 @@ CORS_ALLOWED_ORIGINS = [
 
 AUTH_USER_MODEL = 'users.User'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'static')
 MEDIA_URLS ='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
