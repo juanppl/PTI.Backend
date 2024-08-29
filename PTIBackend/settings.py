@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-7kh^&o(s8@@vg=y1+@9)lqz4ukzb131%s8r!dq6%(9!&*gxwrz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', ".now.sh"]
 
 
 # Application definition
@@ -75,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'PTIBackend.wsgi.application'
+WSGI_APPLICATION = 'PTIBackend.wsgi.app'
 
 
 # Database
