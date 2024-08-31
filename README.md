@@ -34,6 +34,10 @@ Where <int:pk> is the id of the product <br />
 [POST] -> BaseURL/api/register/ <br />
 [AUTH][POST] -> BaseURL/api/update-profile/<int:pk>/ <br />
 
+#### Chatbot
+[AUTH][POST] -> BaseURL/api/chatbot/create-thread/ <br />
+[AUTH][POST] -> BaseURL/api/chatbot/send-message-to-thread/ <br />
+
 # Usage
 
 To use this template to start your own project:

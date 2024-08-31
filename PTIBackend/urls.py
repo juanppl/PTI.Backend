@@ -32,6 +32,7 @@ urlpatterns = [
     path("api/products/", include("products.urls")),
     path("api/categories/", include("categories.urls")),
     path("api/orders/", include("orders.urls")),
+    path("api/chatbot/", include("chatbot.urls")),
     path('api/v1/', include(router.urls)),
     path('api/user-login/', UserLogIn.as_view()),
     path('api/register/', create_auth),

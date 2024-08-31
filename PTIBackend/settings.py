@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', ".now.sh"]
 
+OPENAI_API_KEY = 'apikey'
 
 # Application definition
 
@@ -44,7 +45,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'users',
-    'orders'
+    'orders',
+    'chatbot'
 ]
 
 MIDDLEWARE = [
